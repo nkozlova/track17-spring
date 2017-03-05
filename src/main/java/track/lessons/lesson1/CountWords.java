@@ -35,7 +35,7 @@ public class CountWords {
      * @return - целое число - сумма всех чисел из файла
      */
     public long countNumbers(File file) throws Exception {
-        Integer countNumber = 0;
+        long countNumber = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             //чтение построчно
             String str = br.readLine();
