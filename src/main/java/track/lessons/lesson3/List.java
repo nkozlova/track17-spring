@@ -44,6 +44,4 @@ public abstract class List {
     int size() {
         return size;
     }
-
-
 }

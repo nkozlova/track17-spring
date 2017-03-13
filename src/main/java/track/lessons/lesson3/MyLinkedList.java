@@ -70,5 +70,4 @@ public class MyLinkedList extends List {
         }
         return currentElement.val;
     }
-
 }

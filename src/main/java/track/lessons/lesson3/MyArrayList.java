@@ -17,7 +17,6 @@ public class MyArrayList extends List {
     public MyArrayList() {
         capacity = 10;
         array = new int[capacity];
-
     }
 
     public MyArrayList(int capacity) {
@@ -59,5 +58,4 @@ public class MyArrayList extends List {
         }
         return array[idx];
     }
-
 }
