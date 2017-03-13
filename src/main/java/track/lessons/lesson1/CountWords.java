@@ -1,7 +1,9 @@
 package track.lessons.lesson1;
 
 import java.io.File;
-
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 /**
  * Задание 1: Реализовать два метода
  *
@@ -21,6 +23,8 @@ import java.io.File;
  * ******************************************************************************************
  *
  */
+
+
 public class CountWords {
 
     /**
@@ -31,7 +35,20 @@ public class CountWords {
      * @return - целое число - сумма всех чисел из файла
      */
     public long countNumbers(File file) throws Exception {
-        return 0;
+        long countNumber = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            //чтение построчно
+            String str = br.readLine();
+            while (str != null) {
+                if (str.matches("[0-9]+")) {
+                    countNumber += Integer.parseInt(str);
+                }
+                str = br.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return countNumber;
     }
 
 
@@ -43,7 +60,19 @@ public class CountWords {
      * @return - результирующая строка
      */
     public String concatWords(File file) throws Exception {
-        return null;
+        String resultStr = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            //чтение построчно
+            String str = br.readLine();
+            while (str != null) {
+                if (!str.matches("[0-9]+") && !str.equals("")) {
+                    resultStr += str + " ";
+                }
+                str = br.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return resultStr.trim();
     }
-
 }
