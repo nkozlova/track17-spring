@@ -11,11 +11,7 @@ import java.util.NoSuchElementException;
  */
 public abstract class List {
 
-    protected static int size;
-
-    public List() {
-        size = 0;
-    }
+    protected int size;
 
     /**
      * Добавить элемент в конец списка

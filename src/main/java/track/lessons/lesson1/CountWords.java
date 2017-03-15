@@ -60,19 +60,19 @@ public class CountWords {
      * @return - результирующая строка
      */
     public String concatWords(File file) throws Exception {
-        String resultStr = "";
+        StringBuilder resultStr = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             //чтение построчно
             String str = br.readLine();
             while (str != null) {
                 if (!str.matches("[0-9]+") && !str.equals("")) {
-                    resultStr += str + " ";
+                    resultStr.append(str + " ");
                 }
                 str = br.readLine();
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return resultStr.trim();
+        return resultStr.toString().trim();
     }
 }

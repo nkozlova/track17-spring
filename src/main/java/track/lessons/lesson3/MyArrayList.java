@@ -11,12 +11,14 @@ import java.util.NoSuchElementException;
  */
 public class MyArrayList extends List {
 
+    static final int DEFAULT_CAPACITY = 10;
+
     private int []array;
     private int capacity;
 
     public MyArrayList() {
-        capacity = 10;
-        array = new int[capacity];
+        capacity = DEFAULT_CAPACITY;
+        array = new int[DEFAULT_CAPACITY];
     }
 
     public MyArrayList(int capacity) {
@@ -27,12 +29,14 @@ public class MyArrayList extends List {
     @Override
     void add(int item) {
         if (capacity == 0) {
-            capacity = 2;
+            capacity = DEFAULT_CAPACITY;
             array = new int[capacity];
         }
         if (size >= capacity - 1) {
             capacity *= 2;
-            array = new int[capacity];
+            int []newArray = new int[capacity];
+            System.arraycopy(array, 0, newArray, 0, size);
+            array = newArray;
         }
         array[size] = item;
         ++size;
@@ -45,7 +49,7 @@ public class MyArrayList extends List {
         }
         int answer = array[idx];
         for (int i = idx; i < size; ++i) {
-            array[i] = array[i + 1];
+            System.arraycopy(array, idx + 1, array, idx, size - idx - 1);
         }
         --size;
         return answer;
