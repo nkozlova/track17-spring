@@ -54,6 +54,8 @@ public class MyLinkedList extends List implements Stack, Queue {
         }
         if (currentElement.next != null) {
             currentElement.next.prev = currentElement.prev;
+        } else {
+            head = head.prev;
         }
         --size;
         return currentElement.val;

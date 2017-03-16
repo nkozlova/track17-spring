@@ -13,7 +13,7 @@ public class MyArrayList extends List {
 
     static final int DEFAULT_CAPACITY = 10;
 
-    private int []array;
+    private int[] array;
     private int capacity;
 
     public MyArrayList() {
@@ -34,7 +34,7 @@ public class MyArrayList extends List {
         }
         if (size >= capacity - 1) {
             capacity *= 2;
-            int []newArray = new int[capacity];
+            int[] newArray = new int[capacity];
             System.arraycopy(array, 0, newArray, 0, size);
             array = newArray;
         }
