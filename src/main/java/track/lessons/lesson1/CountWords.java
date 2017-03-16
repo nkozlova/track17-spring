@@ -41,7 +41,7 @@ public class CountWords {
             String str = br.readLine();
             while (str != null) {
                 if (str.matches("[0-9]+")) {
-                    countNumber += Integer.parseInt(str);
+                    countNumber += Long.parseLong(str);
                 }
                 str = br.readLine();
             }
@@ -66,7 +66,7 @@ public class CountWords {
             String str = br.readLine();
             while (str != null) {
                 if (!str.matches("[0-9]+") && !str.equals("")) {
-                    resultStr.append(str + " ");
+                    resultStr.append(str).append(" ");
                 }
                 str = br.readLine();
             }
