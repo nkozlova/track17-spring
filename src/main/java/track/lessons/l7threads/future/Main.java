@@ -1,4 +1,4 @@
-package track.lessons.l7threads.future;
+/*package track.lessons.l7threads.future;
 
 import java.awt.Image;
 import java.util.concurrent.CompletableFuture;
@@ -12,7 +12,7 @@ import track.lections.Util;
 
 /**
  *
- */
+ *//*
 public class Main {
 
     static Logger log = LoggerFactory.getLogger(Main.class);
@@ -47,4 +47,4 @@ public class Main {
         }
     }
 
-}
+}*/
