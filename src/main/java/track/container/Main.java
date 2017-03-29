@@ -16,6 +16,7 @@ public class Main {
 
     public static void main(String[] args) throws InvalidConfigurationException {
 
+
         /*
 
         ПРИМЕР ИСПОЛЬЗОВАНИЯ
@@ -40,6 +41,5 @@ public class Main {
         System.out.println(car);
 
         System.out.println(car == anotherCar);
-
     }
 }

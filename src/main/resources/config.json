@@ -34,6 +34,7 @@
         "power": {
           "name": "power",
           "value": "200",
+
           "type": "VAL"
         }
       }
