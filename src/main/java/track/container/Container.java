@@ -44,7 +44,7 @@ public class Container {
                 name.setCharAt(0, Character.toUpperCase(name.charAt(0)));
                 Method setMethod = cl.getDeclaredMethod("set" + name, currentField.getType());
                 if (property.getType().equals(ValueType.VAL)) {
-                    if (currentField.getType().toString().equals("int")) {
+                    if (isPrimitive(currentField.getType().toString())) {
                         setMethod.invoke(current, Integer.parseInt(property.getValue()));
                     } else {
                         throw new Exception("Invalid type");
@@ -91,6 +91,12 @@ public class Container {
             }
             return null;
         }
+    }
+
+    private boolean isPrimitive(String type) {
+        return type.equals("int") || type.equals("boolean") || type.equals("short") ||
+                type.equals("long") || type.equals("char") || type.equals("byte") ||
+                type.equals("float") || type.equals("double") || type.equals("String");
     }
 
 }
