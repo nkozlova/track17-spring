@@ -1,4 +1,4 @@
-package track.BlockingQueue;
+package track.blocking;
 
 
 public interface BlockingQueue<T> {

@@ -1,4 +1,4 @@
-package track.BlockingQueue;
+package track.blocking;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -55,7 +55,8 @@ public class MyBlockingQueue<T> implements BlockingQueue<T> {
         empty.lock();
         lock.lock();
         empty.unlock();
-        T elem = queue.peek();
+        T elem;
+        elem = queue.peek();
         full.unlock();
         if (queue.size() == 0) {
             empty.lock();
