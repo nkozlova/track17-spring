@@ -1,0 +1,66 @@
+package track.messenger;
+
+import track.messenger.store.ChatRelation;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
+public class Chat {
+    private Long id;
+    private List<Long> participants = new LinkedList<>();
+    private Long adminId;
+    private List<ChatRelation> relations = new LinkedList<>();
+
+    public Chat() {}
+
+    public Chat(User user) {
+        participants.add(user.getId());
+        adminId = user.getId();
+        relations.add(new ChatRelation(adminId, id, adminId));
+    }
+
+    public Chat(List<ChatRelation> relations) {
+        if (relations == null || relations.size() == 0) {
+            return;
+        }
+        this.id = relations.get(0).getChatId();
+        this.adminId = relations.get(0).getAdminId();
+        this.participants = relations.stream()
+                .map(ChatRelation::getParticipantId)
+                .collect(Collectors.toList());
+        this.relations = relations;
+    }
+
+    public void addParticipant(User user) {
+        if (user != null) {
+            participants.add(user.getId());
+            relations.add(new ChatRelation(adminId, id, user.getId()));
+        }
+    }
+
+    public boolean contains(User user) {
+        return participants.contains(user.getId());
+    }
+
+    public boolean contains(Long userId) {
+        return participants.contains(userId);
+    }
+
+    public List<Long> getParticipants() {
+        return participants;
+    }
+
+    public List<ChatRelation> getRelations() {
+        return relations;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getAdminId() {
+        return adminId;
+    }
+}
